@@ -1,4 +1,4 @@
-# ESP32-Copper-Tape-Cutter
+# ESP32 Copper Tape Cutter
 
 Every year I teach my students how to build paper circuits using templates from [Chibitronics](https://chibitronics.com/).  For the first few projects they follow a template I give them so I know exactly how much copper tape each student needs.  I made this machine to measure and cut the tape for me. 
 
