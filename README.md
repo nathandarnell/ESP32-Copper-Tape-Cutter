@@ -12,3 +12,6 @@ This program uses these libraries:
   * [AccelStepper](http://www.airspayce.com/mikem/arduino/AccelStepper/)
   * [ESP32Servo](https://github.com/jkb-git/ESP32Servo)
   * [EEPROM32 Rotate](https://github.com/xoseperez/eeprom32_rotate)
+
+Due to how EEPROM32_Rotate creates custom partitions, I switched over from Arduino IDE to VS Code with PlatformIO.  Although the learning curve was steeper, in a few hours I felt comfortable and started to appreciate the 
+Here is an overview of how to get started by [Paul O'Brian](http://paulobrien.co.nz/2018/04/02/platform-io-visual-studio-code-and-arduino-bye-bye-arduino-ide/) and the PlatformIO [Install Guide](https://platformio.org/install/ide?install=vscode) and [Quick Start](https://docs.platformio.org/en/latest/ide/vscode.html#quick-start).
