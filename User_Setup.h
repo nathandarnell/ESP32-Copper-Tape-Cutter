@@ -1,18 +1,26 @@
-// For this screen: 1.77 inch 1.8 TFT Color Display Module Breakout SPI ST7735S for Arduino UNO LCD
+// This is my working setup for the https://github.com/Bodmer/TFT_eSPI library that I spent quite a bit of time on wiring
+// since the pin names are different on this board.
+// It is for this screen: 1.77 inch 1.8 TFT Color Display Module Breakout SPI ST7735S for Arduino UNO LCD
 // https://www.ebay.com/itm/1-77-inch-1-8-TFT-Color-Display-Module-Breakout-SPI-ST7735S-for-Arduino-UNO-LCD/222565215470
 //
-// Adafruit    SainSmart    ESP32
-//  Names        Names       Pins
+// Adafruit    SainSmart    TFT_eSPI    ESP32    Description
+//  Names        Names        Pins       Pins
 //
-//  GND          GND  1      GND // Obvious
-//  3V3          VCC  2      3V3 // Obvious
-//  SCL          SCK  3      D5  // Hardcoded on ESP8266
-//  MOSI         SDA  4      D7  // Hardcoded on ESP8266
-//  RESET        RES  5      RST // Make sure #define TFT_RST  -1 is uncommented below
-//  D/C          RS   6      D0  // Define what you want and change the TFT_DC value below
-//  TFT_CS       CS   7      D8  // Define what you want and change the TFT_CS value below
-//  LITE         LEDA 8      3V3 // Seems to work on 3.3v
+//  GND          GND  1                   GND     // Obvious
+//  3V3          VCC  2                   3V3     // Obvious
+//  SCL          SCK  3      TFT_SCLK      5      // Can be any pin on ESP32
+//  MOSI         SDA  4      TFT_MOSI     17      // Can be any pin on ESP32
+//  RESET        RES  5      TFT_RST      16      // Can be any pin on ESP32
+//  D/C          RS   6      TFT_DC        4      // Don't know why the TFT calls it RS
+//  TFT_CS       CS   7      TFT_CS       15      // Can be any pin on ESP32
+//  LITE         LEDA 8                   VIN     // Might need to be on 3.3v but I have been running it on VIN 5v YMMV
 
+// Alternative naming conventions are also widely used:
+
+// SCLK : SCK, CLK.
+// MOSI : SDA, SIMO, SDO, DO, DOUT, SO, MTSR.
+// MISO : RS, SOMI, SDI, DI, DIN, SI, MRST.
+// SS : CS, nCS, CSB, CSN, nSS, STE, SYNC.
 
 //                            USER DEFINED SETTINGS
 //   Set driver type, fonts to be loaded, pins used and SPI control method etc
@@ -171,28 +179,6 @@
 
 // For ESP32 Dev board (only tested with ILI9341 display)
 // The hardware SPI can be mapped to any pins
-
-// Alternative naming conventions are also widely used:
-
-// SCLK : SCK, CLK.
-// MOSI : SDA, SIMO, SDO, DO, DOUT, SO, MTSR.
-
-// MISO : RS, SOMI, SDI, DI, DIN, SI, MRST.
-// SS : CS, nCS, CSB, CSN, nSS, STE, SYNC.
-
-// Adafruit____	SainSmart
-// LITE	
-// SCK	SCL
-// MOSI	SDA
-// TFT_CS	CS
-// D/C	RS/DC
-// RESET	RES
-
-// VCC	VCC
-// Gnd	GND
-
-
-
 
 // #define TFT_MISO 19 // Not needed if not reading... I think
 #define TFT_MOSI 17 //16 //23
